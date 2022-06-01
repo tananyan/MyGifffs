@@ -47,20 +47,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Функуия отрисовки картинок
   function createSearchGif(data) {
-    let out = document.querySelector(".gifs__searched");
-    out.innerHTML = "";
+    // const out = document.querySelector(".gifs__searched");
+    // out.innerHTML = "";
+    const columns = document.querySelectorAll(".gifs__column");
+    columns.forEach((column) => (column.innerHTML = ""));
+
     for (let i = 0; i < data.length; i++) {
-      let fig = document.createElement("figure");
+      // let fig = document.createElement("figure");
       let img = document.createElement("img");
-      let fc = document.createElement("figcaption");
+      // let fc = document.createElement("figcaption");
 
       img.src = data[i].images.downsized.url;
       img.alt = data[i].title;
-      fc.textContent = data[i].title;
+      // fc.textContent = data[i].title;
 
-      fig.appendChild(img);
-      fig.appendChild(fc);
-      out.insertAdjacentElement("beforeend", fig);
+      // fig.appendChild(img);
+      // fig.appendChild(fc);
+
+      // Индекс
+      let k = i % 5;
+      columns[k].insertAdjacentElement("beforeend", img);
     }
   }
 });

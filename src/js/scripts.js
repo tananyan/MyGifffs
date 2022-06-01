@@ -57,9 +57,10 @@ document.addEventListener("DOMContentLoaded", function () {
       img.src = data[i].images.downsized.url;
       img.alt = data[i].title;
       fc.textContent = data[i].title;
+
       fig.appendChild(img);
       fig.appendChild(fc);
-      out.insertAdjacentElement("afterbegin", fig);
+      out.insertAdjacentElement("beforeend", fig);
     }
   }
 });

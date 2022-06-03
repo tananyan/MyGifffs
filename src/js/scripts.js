@@ -21,10 +21,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // search
     searchGif(q, limit, rating, lang);
-
-    // clean
-    // formSearching.reset();
   });
+
+  // active input
+  // search.addEventListener("input", (e) => {
+  //   e.preventDefault();
+
+  //   // inputs
+  //   q = search.value.trim().replace(/ /g, "+");
+  //   limit = number.value;
+
+  //   // intervel
+  //   let timer = setInterval(() => {
+  //     // search
+  //     searchGif(q, limit, rating, lang);
+  //   }, 3000);
+  // });
 
   function searchGif(str, count, rait, lng) {
     let myUrl = `https://api.giphy.com/v1/gifs/search?api_key=${AK}&q=${str}&limit=${count}&offset=0&rating=${rait}&lang=${lng}`;

@@ -1,8 +1,31 @@
-.form{
+.form {
   padding-top: 25px;
-  &__wrapper{
+  &__wrapper {
     padding: 0 7px;
     color: whitesmoke;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    height: 61px;
+  }
+  &__flex_left {
+    display: flex;
+    justify-content: space-between;
+    input {
+      width: 210px;
+    }
+  }
+  &__flex_right {
+    display: flex;
+    justify-content: space-between;
+    input {
+      width: 115px;
+    }
+    #btnSearch {
+      width: 61px;
+      border: 1px solid black;
+    }
   }
 }
-

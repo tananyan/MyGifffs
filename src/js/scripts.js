@@ -3,11 +3,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   const AK = "Nz64mFZuMh2k2MtqmSPFJJki75cv0Vr5";
   let q = "";
-  let limit = 5;
+  let limit = 15;
   let rating = "g"; // g, pg, pg-13 and r
   let lang = "ru"; // en, ru
-
-  // https://api.giphy.com/v1/gifs/search?api_key=Nz64mFZuMh2k2MtqmSPFJJki75cv0Vr5&q=spider-man&limit=5&offset=0&rating=g&lang=en
 
   const search = document.querySelector("#search");
   const number = document.querySelector("#number");
@@ -47,8 +45,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Функуия отрисовки картинок
   function createSearchGif(data) {
-    // const out = document.querySelector(".gifs__searched");
-    // out.innerHTML = "";
+    // 5 колонок по умолчанию
+    let numberOfColumns = 5;
+    // Получение ширины окна
+    let widthCurrent = document.documentElement.clientWidth;
+    // Адаптивность
+    if (widthCurrent < 992) {
+      numberOfColumns = 3;
+    }
+
     const columns = document.querySelectorAll(".gifs__column");
     columns.forEach((column) => (column.innerHTML = ""));
 
@@ -65,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // fig.appendChild(fc);
 
       // Индекс
-      let k = i % 5;
+      let k = i % numberOfColumns;
       columns[k].insertAdjacentElement("beforeend", img);
     }
   }
